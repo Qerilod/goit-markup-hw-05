@@ -502,43 +502,63 @@ address {
 
 /* .subscribe-container { */
 /* } */
-/* .subscribe-form { */
+.subscribe-form {
+  display: flex;
+  gap: 24px;
+}
+/* .subscribe-form-label { */
 /* } */
 .subscribe-text {
-  color: var(--WHITE, #fff);
-  font-size: 16px;
+  margin-bottom: 16px;
   font-weight: 500;
+  font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  margin-bottom: 16px;
+  color: var(--WHITE, #fff);
 }
 
 .input-mail {
-  border-radius: 4px;
-  border: 1px solid var(--WHITE, #fff);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-  background: var(--NAVY-BLUE, #2e2f42);
   width: 264px;
   height: 40px;
+  border: 1px solid var(--WHITE, #fff);
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  padding-left: 16px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
   color: var(--WHITE, #fff);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  background: var(--NAVY-BLUE, #2e2f42);
+}
+
+.input-mail::placeholder {
+  color: #ffffff;
 }
 
 .subscribe-button {
-  padding: 8px 24px;
-  max-width: 100%;
-  border: none;
-  color: var(--WHITE, #fff);
-  text-align: center;
+  min-width: 165px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto";
   font-size: 16px;
   font-weight: 500;
-
   line-height: 1.5;
   letter-spacing: 0.04em;
+  color: var(--WHITE, #fff);
+  cursor: pointer;
+  background-color: #4d5ae5;
+  border: none;
   border-radius: 4px;
-  background: var(--IRIS, #4d5ae5);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-  margin-left: 24px;
+  padding: 8px 24px;
+  /* text-align: center; */
+  /* border-radius: 4px; */
+  /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+  /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); */
+  /* margin-left: 24px; */
 }
 
 .subscribe-button:hover,
@@ -548,6 +568,7 @@ address {
 
 .subscribe-svg-item {
   fill: #f4f4fd;
+  margin-left: 16px;
 }
 
 /* =============Backdrop===========  */
@@ -559,12 +580,12 @@ address {
   width: 100%;
   height: 100%;
   background: var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.4));
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
-  transition: opacity 500ms linear, visibility 500ms linear;
 }
 
 .backdrop.is-open {
@@ -583,34 +604,45 @@ address {
   transform: translate(-50%, -50%);
   width: 408px;
   min-height: 584px;
-  padding: 24px;
+  /* padding: 24px; */
   border-radius: 4px;
   background: var(--DAIRY, #fcfcfc);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 72px 24px 24px 24px;
 }
 /* ==========Modal window======== */
 .close-btn {
+  display: flex;
+  align-items: center;
   position: absolute;
+  justify-content: center;
   top: 24px;
   right: 24px;
-  line-height: 0;
   width: 24px;
   height: 24px;
+  line-height: 0;
   background-color: #e7e9fc;
+  padding: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  padding: 8px;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-btn:hover,
 .close-btn:focus {
   background-color: #404bbf;
+  border: none;
   transition: color 250ms ease-out;
 }
 
 .close-btn-icon {
-  width: 24px;
-  height: 24px;
-  fill: #2e2f42;
+  /* width: 24px; */
+  /* height: 24px; */
+  fill: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: fill 250ms ease-out;
 }
 
@@ -622,71 +654,117 @@ address {
 /* =======Model Form====== */
 
 .reviev-form-description {
-  color: var(--NAVY-BLUE, #2e2f42);
-  text-align: center;
-  font-size: 16px;
   font-weight: 500;
+  font-size: 16px;
   line-height: 1.5;
+  text-align: center;
   letter-spacing: 0.02em;
-  margin-top: 24px;
+  margin-bottom: 16px;
+  color: var(--NAVY-BLUE, #2e2f42);
 }
-
+.review-form-wrapper {
+  margin-bottom: 8px;
+}
 .review-form-field-label {
-  display: block;
-  color: var(--LIGHT-SLATE, #8e8f99);
   font-size: 12px;
-  font-weight: 400;
-  line-height: 1.16;
+  line-height: 1.17;
   letter-spacing: 0.04em;
+  color: var(--LIGHT-SLATE, #8e8f99);
+  display: block;
   margin-bottom: 4px;
+  /* font-weight: 400; */
+}
+.rewiew-form-imput-wrapper {
+  position: relative;
+  /* margin-bottom: 8px; */
 }
 
 .review-form-imput {
   width: 100%;
   height: 40px;
   border-radius: 4px;
-  border: 1px solid #8e8f99;
+  border: 1px solid rgba(46, 47, 66, 0.4);
   padding-left: 38px;
+  background-color: transparent;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .review-form-imput:focus {
   border: 1px solid #4d5ae5;
-  outline: transparent;
-  transition: border-color 250ms ease-out;
-}
-
-.rewiew-form-imput-wrapper {
-  position: relative;
-  margin-bottom: 8px;
+  /* outline: transparent; */
+  /* transition: border-color 250ms ease-out; */
 }
 
 .review-form-icon {
   position: absolute;
   top: 50%;
   left: 16px;
-
-  /* transform: translate(Y); */
+  transform: translateY(-50%);
+  fill: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .review-form-imput:focus + .review-form-icon {
   fill: #4d5ae5;
 }
 
+.review-form-wrapper-comment {
+  margin-bottom: 16px;
+}
+
 .review-form-comment {
   width: 100%;
   height: 120px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
   border-radius: 4px;
   border: 1px solid var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.4));
+  color: var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.4));
+  background-color: transparent;
   padding-top: 8px;
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 8px;
+  outline: transparent;
   resize: none;
-  color: var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.4));
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* font-weight: 400; */
+}
+
+.review-form-checkbox-wrapper {
+  margin-bottom: 24px;
+}
+
+.review-form-checkbox-label {
   font-size: 12px;
-  font-weight: 400;
-  line-height: 1.16;
+  line-height: 1.17;
   letter-spacing: 0.04em;
+  color: #8e8f99;
+}
+.review-form-checkbox-own {
+  width: 16px;
+  height: 16px;
+  border: solid 1px var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.4));
+  border-radius: 2px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  fill: transparent;
+
+  /* cursor: pointer; */
+  /* fill: #ffffff; */
+  /* margin-right: 8px; */
+  /* margin-bottom: 24px; */
+}
+
+.review-form-checkbox:checked + .review-form-checkbox-own {
+  background-color: #404bbf;
+  border: none;
+  fill: #f4f4fd;
 }
 
 .review-form-comment::placeholder {
@@ -697,39 +775,40 @@ address {
   outline: transparent;
   transition: border-color 250ms ease-out;
 }
-
-.review-form-checkbox-own {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 16px;
-  height: 16px;
-  border: solid 1px var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.4));
-  cursor: pointer;
-  fill: #ffffff;
-  margin-right: 8px;
-  margin-bottom: 24px;
+.review-form-grivacy-link {
+  color: #4d5ae5;
+  text-decoration: none;
 }
-
-.review-form-checkbox:checked
-  + .review-form-checkbox-label
-  > .review-form-checkbox-own {
-  background-color: var(--OCEAN, #404bbf);
-}
+/* .review-form-checkbox:checked */
+/* + .review-form-checkbox-label */
+/* > .review-form-checkbox-own { */
+/* background-color: var(--OCEAN, #404bbf); */
+/* } */
 
 .review-form-sumbit {
-  color: var(--WHITE, #fff);
-  text-align: center;
+  display: block;
+  min-width: 169px;
+  height: 56px;
+  line-height: 1.5;
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.5;
   letter-spacing: 0.04em;
+  color: var(--WHITE, #fff);
+  text-align: center;
+  cursor: pointer;
+  border: none;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--IRIS, #4d5ae5);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  margin: auto;
+  /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); */
 
-  padding: 16px 32px;
+  /* padding: 16px 32px; */
 
-  gap: 10px;
+  /* gap: 10px; */
 }
 /* =======Model Form====== */
+.review-form-sumbit:hover,
+.review-form-sumbit:focus {
+  background-color: #404bbf;
+}
